@@ -19,8 +19,8 @@ public class DBService extends SQLiteOpenHelper
 		String sql = "CREATE TABLE [t_contacts] ("
 				+ "[id] AUTOINC,"
 				+ "[name] VARCHAR(20) NOT NULL ON CONFLICT FAIL,"
-				+ "[telephone] VARCHAR(20) NOT NULL ON CONFLICT FAIL,"
-				+ "[email] VARCHAR(20),"
+				+ "[message] VARCHAR(20) NOT NULL ON CONFLICT FAIL,"
+				+ "[date] VARCHAR(20),"
 				+ "[photo] BINARY, "
 				+ "CONSTRAINT [sqlite_autoindex_t_contacts_1] PRIMARY KEY ([id]))";
 
@@ -42,8 +42,8 @@ public class DBService extends SQLiteOpenHelper
 		sql = "CREATE TABLE [t_contacts] ("
 				+ "[id] AUTOINC,"
 				+ "[name] VARCHAR(20) NOT NULL ON CONFLICT FAIL,"
-				+ "[telephone] VARCHAR(20) NOT NULL ON CONFLICT FAIL,"
-				+ "[email] VARCHAR(20),"
+				+ "[message] VARCHAR(20) NOT NULL ON CONFLICT FAIL,"
+				+ "[date] VARCHAR(20),"
 				+ "[photo] BINARY, "
 				+ "CONSTRAINT [sqlite_autoindex_t_contacts_1] PRIMARY KEY ([id]))";
 		db.execSQL(sql);

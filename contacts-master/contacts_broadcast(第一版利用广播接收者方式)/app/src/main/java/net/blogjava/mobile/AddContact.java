@@ -104,7 +104,7 @@ public class AddContact extends Activity implements OnClickListener,
 	@Override
 	public boolean onMenuItemClick(MenuItem item)
 	{
-		String sql = " insert into t_contacts(name, telephone, email, photo) values(?,?,?,?)";
+		String sql = " insert into t_contacts(name, message, date, photo) values(?,?,?,?)";
 
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		((BitmapDrawable) ivPhoto.getDrawable()).getBitmap().compress(
@@ -120,8 +120,8 @@ public class AddContact extends Activity implements OnClickListener,
 		// ¿ª·¢¹ã²¥Ìí¼ÓÁªÏµÈËµÄÏûÏ¢
 		Intent addContactIntent = new Intent(ACTION_ADD_CONTACT);
 		addContactIntent.putExtra("name", etName.getText().toString());
-		addContactIntent.putExtra("telephone", etTelephone.getText().toString());
-		addContactIntent.putExtra("email", etEmail.getText().toString());
+		addContactIntent.putExtra("message", etTelephone.getText().toString());
+		addContactIntent.putExtra("date", etEmail.getText().toString());
 		addContactIntent.putExtra("photoFilename", photoFilename);
 		
 		sendBroadcast(addContactIntent);

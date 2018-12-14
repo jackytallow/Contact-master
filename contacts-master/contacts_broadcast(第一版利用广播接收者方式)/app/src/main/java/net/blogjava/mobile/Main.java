@@ -46,8 +46,8 @@ public class Main extends ListActivity implements OnMenuItemClickListener
 			ImageView ivPhone = (ImageView) view.findViewById(R.id.ivPhoto);
 			tvName.setText(cursor.getString(cursor.getColumnIndex("name")));
 			tvTelephone.setText(cursor.getString(cursor
-					.getColumnIndex("telephone")));
-			tvDate.setText(cursor.getString(cursor.getColumnIndex("email")));
+					.getColumnIndex("message")));
+			tvDate.setText(cursor.getString(cursor.getColumnIndex("date")));
 
 
 			byte[] photo = cursor.getBlob(cursor.getColumnIndex("photo"));
@@ -89,7 +89,7 @@ public class Main extends ListActivity implements OnMenuItemClickListener
 	{
 		super.onCreate(savedInstanceState);
 		DBService dbService = new DBService(this);
-		String sql = "select id as _id, name,telephone,email,photo from t_contacts order by name";
+		String sql = "select id as _id, name,message,date,photo from t_contacts order by name";
 		Cursor cursor = dbService.query(sql, null);
 		contactAdapter = new ContactAdapter(this, cursor, true);
 		setListAdapter(contactAdapter);
