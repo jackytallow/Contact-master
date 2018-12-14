@@ -25,6 +25,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+
+/**
+*AddContact是负责保存带头像的联系人信息 
+*/
 public class AddContact extends Activity implements OnClickListener,
 		OnFileBrowserListener, OnMenuItemClickListener
 {
@@ -75,9 +79,9 @@ public class AddContact extends Activity implements OnClickListener,
 		fileBrowser = (FileBrowser) fileBrowserView
 				.findViewById(R.id.filebrowser);
 		fileBrowser.setOnFileBrowserListener(this);
-		alertDialog = new AlertDialog.Builder(this).setTitle("ѡ����ϵ��ͷ��")
+		alertDialog = new AlertDialog.Builder(this).setTitle("Ñ¡ÔñÁªÏµÈËÍ·Ïñ")
 				.setIcon(R.drawable.select_photo).setView(fileBrowserView)
-				.setPositiveButton("�ر�", null).create();
+				.setPositiveButton("¹Ø±Õ", null).create();
 		alertDialog.show();
 
 	}
@@ -96,6 +100,7 @@ public class AddContact extends Activity implements OnClickListener,
 
 	}
 
+//将头像转换为字节数组流。ivPhoto是一个Imageview组件，用于显示联系人的头像
 	@Override
 	public boolean onMenuItemClick(MenuItem item)
 	{
@@ -110,8 +115,9 @@ public class AddContact extends Activity implements OnClickListener,
 
 		Main.dbService.execSQL(sql, args);
 		Main.contactAdapter.getCursor().requery();
+		//通知主界面的ListView组件，t_contacts表中的数据已经发生变化，需要更新列表
 		Main.contactAdapter.notifyDataSetChanged();
-		// �����㲥������ϵ�˵���Ϣ
+		// ¿ª·¢¹ã²¥Ìí¼ÓÁªÏµÈËµÄÏûÏ¢
 		Intent addContactIntent = new Intent(ACTION_ADD_CONTACT);
 		addContactIntent.putExtra("name", etName.getText().toString());
 		addContactIntent.putExtra("telephone", etTelephone.getText().toString());
@@ -126,7 +132,7 @@ public class AddContact extends Activity implements OnClickListener,
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
-		menu.add("����").setOnMenuItemClickListener(this);
+		menu.add("±£´æ").setOnMenuItemClickListener(this);
 		return super.onCreateOptionsMenu(menu);
 	}
 

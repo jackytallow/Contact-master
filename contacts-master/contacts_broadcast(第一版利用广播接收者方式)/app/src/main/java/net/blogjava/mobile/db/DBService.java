@@ -38,7 +38,7 @@ public class DBService extends SQLiteOpenHelper
 	{
 		String sql = "drop table if exists [t_contacts]";
 		db.execSQL(sql);
-		// Â´Ã‹Â´Â¦Ã“Â¦Â¸ÃƒÃŠÃ‡ÃÃ‚ÂµÃ„SQLÃ“Ã¯Â¾Ã¤
+		// ´Ë´¦Ó¦¸ÃÊÇĞÂµÄSQLÓï¾ä
 		sql = "CREATE TABLE [t_contacts] ("
 				+ "[id] AUTOINC,"
 				+ "[name] VARCHAR(20) NOT NULL ON CONFLICT FAIL,"
@@ -49,13 +49,13 @@ public class DBService extends SQLiteOpenHelper
 		db.execSQL(sql);
 
 	}
-    //  Ö´ï¿½ï¿½insertï¿½ï¿½updateï¿½ï¿½deleteï¿½ï¿½SQLï¿½ï¿½ï¿½
+    //  Ö´ĞĞinsert¡¢update¡¢deleteµÈSQLÓï¾ä
 	public void execSQL(String sql, Object[] args)
 	{
 		SQLiteDatabase db = this.getWritableDatabase();				
 		db.execSQL(sql, args);	
 	}
-    //  Ö´ï¿½ï¿½selectï¿½ï¿½ï¿½
+    //  Ö´ĞĞselectÓï¾ä
 	public Cursor query(String sql, String[] args)
 	{
 		SQLiteDatabase db = this.getReadableDatabase();
